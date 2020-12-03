@@ -8,9 +8,7 @@
 
 ## Usage
 
-> Some usage instructions
-
-This reviews service utilizes a RESTful API architecture to retrieve and modify database-hosted, site-critical information. Syntax and routes conform to common sense REST standards.
+This reviews service utilizes a RESTful API architecture to retrieve and modify database-hosted, site-critical information. Syntax and routes conform to REST standards.
 
 ### Get listing reviews
 
@@ -30,12 +28,10 @@ This reviews service utilizes a RESTful API architecture to retrieve and modify 
     {
       "id": "Number",
       "review": {
-        "_id": "String",
         "text": "String",
         "date": "String"
       },
       "user": {
-        "_id": "String",
         "username": "String",
         "first_name": "String",
         "last_name": "String",
@@ -56,7 +52,7 @@ This reviews service utilizes a RESTful API architecture to retrieve and modify 
 
 Used to retrieve a single **listing** by its id number.
 
-Given a listing id, this call will return a listing with an array of its associated reviews, and minor supplemental information.
+Given a listing id, this call will return an array of reviews associated with the listing, including supplemental user information.
 
 ### Create review
 
@@ -134,6 +130,8 @@ Given a specific review, this route will update said review with information as 
 
 - `listing_id` listing id
 - `review_id` listing id
+
+**Success Status Code:** `204`
 
 Used to delete a **review** for a particular listing.
 
