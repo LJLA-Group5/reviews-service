@@ -1,14 +1,4 @@
-## Table of Contents
-
-- [Usage](#Usage)
-- [Create](#Creating_Reviews)
-- [Read](#Reading_Listings)
-- [Update](#Updating_Reviews)
-- [Delete](#Deleting_Reviews)
-
-## Usage
-
-This reviews service utilizes a RESTful API architecture to retrieve and modify database-hosted, site-critical information. Syntax and routes conform to REST standards.
+## Server API
 
 ### Get listing reviews
 
