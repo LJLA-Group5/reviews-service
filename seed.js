@@ -6,8 +6,8 @@ const data = require('./reviewData');
 const Review = require('./db/models/review');
 const Listing = require('./db/models/listing');
 
-mongoose.connect('mongodb://localhost:27017/FEC',
-  {
+mongoose
+  .connect('mongodb://localhost:27017/FEC', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -21,14 +21,10 @@ const seedDb = (d) => {
   d.forEach((listing) => {
     const reviewIdCount = 0;
     const currentListing = new Listing.ListingModel(listing);
-    const randomRating = () => (
-      ((Math.random() * 5) + 2).toString().slice(0, 1)
-    );
+    const randomRating = () => (Math.random() * 5 + 2).toString().slice(0, 1);
 
     const years = [2015, 2016, 2017, 2018, 2019, 2020];
-    const randomYear = (array) => (
-      array[Math.floor(Math.random() * 6)]
-    );
+    const randomYear = (array) => array[Math.floor(Math.random() * 6)];
 
     const newReview = () => ({
       review: {
@@ -60,7 +56,7 @@ const seedDb = (d) => {
       const randPicNum = Math.floor(Math.random() * 100);
       const gend = ['men', 'women'];
       const randGend = gend[Math.floor(Math.random() * 2)];
-      const genNewPic = () => (`https://randomuser.me/api/portraits/${randGend}/${randPicNum}.jpg`);
+      const genNewPic = () => `https://randomuser.me/api/portraits/${randGend}/${randPicNum}.jpg`;
       const currentReview = new Review(newReview());
       currentReview.review.id = num;
       currentReview.user.avatar_url = genNewPic();

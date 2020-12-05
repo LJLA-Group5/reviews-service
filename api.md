@@ -85,7 +85,7 @@ Given a listing id, and the content of a review in the request body, this path w
 **Path Parameters**
 
 - `listing_id` listing id
-- `review_id` listing id
+- `review_id` review id
 
 **Success Status Code:** `204`
 
@@ -114,12 +114,12 @@ Given a specific review, this route will update said review with information as 
 
 ### Delete a review
 
-- DELETE: `/api/listings/:listing_id/reviews/:review_id`
+- DELETE `/api/listings/:listing_id/reviews/:review_id`
 
 **Path Parameters:**
 
 - `listing_id` listing id
-- `review_id` listing id
+- `review_id` review id
 
 **Success Status Code:** `204`
 

@@ -27,3 +27,8 @@ dist/
 ##Keyfiles
 *.pem
 *.sh
+
+# Generated Data
+data/
+.csv
+.env
