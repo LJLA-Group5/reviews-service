@@ -6,7 +6,7 @@ const debug = require('debug')('app:gen:psql:users');
 const path = require('path');
 
 // 10m users
-const usersStream = fs.createWriteStream(path.join(__dirname, '/data/postgres_users_data.csv'));
+const usersStream = fs.createWriteStream(path.join(__dirname, '/data/cass_users_data.csv'));
 usersStream.write('user_id,username,first_name,email,photo_url\n');
 
 function usersGenerator(numberOfUsers) {

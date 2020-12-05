@@ -1,6 +1,6 @@
 CREATE KEYSPACE IF NOT EXISTS ailpup WITH replication = {
   'class':'SimpleStrategy',
-  'replication_factor': 3
+  'replication_factor': 1
 };
 
 CREATE TYPE ailpup.rating (
@@ -14,17 +14,11 @@ CREATE TYPE ailpup.rating (
 
 CREATE TABLE ailpup.users (
   user_id uuid PRIMARY KEY,
-  first_name text,
   username text,
+  first_name text,
   email text,
-  avatar_url text )
+  photo_url text )
   WITH comment = 'Find user by ID';
-
-
-CREATE TABLE ailpup.listings (
-  listing_id int PRIMARY KEY,
-  listing_name text )
-  WITH comment = 'Find listin by ID';
 
 CREATE TABLE ailpup.reviews (
   review_id int PRIMARY KEY,
@@ -47,7 +41,7 @@ CREATE TABLE ailpup.reviews_by_user (
   user_first_name text,
   username text,
   email text,
-  avatar_url text,
+  photo_url text,
   review_id text,
   review_body text,
   created_at date,
