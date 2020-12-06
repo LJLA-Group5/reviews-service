@@ -2,18 +2,15 @@
 require('dotenv').config();
 const fs = require('fs');
 const faker = require('faker');
-const debug = require('debug')('app:gen:psql:users');
+const debug = require('debug')('app:psql:gen:users');
 const path = require('path');
 
 // 10m users
-const usersStream = fs.createWriteStream(path.join(__dirname, '/data/postgres_users_data.csv'));
+const usersStream = fs.createWriteStream(path.join(__dirname, '../data/postgres_users_data.csv'));
 usersStream.write('user_id,username,first_name,email,photo_url\n');
 
 function usersGenerator(numberOfUsers) {
-  if (numberOfUsers === 0) {
-    debug('Finished user gen');
-    return usersStream.end();
-  }
+  if (numberOfUsers === 0) return usersStream.end();
   const gender = ['men', 'women'];
   const user_id = numberOfUsers;
   const username = faker.internet.userName();
@@ -29,4 +26,6 @@ function usersGenerator(numberOfUsers) {
 }
 
 debug('users gen start');
-usersGenerator(1000);
+usersGenerator(10000000);
+
+module.exports = usersGenerator;
