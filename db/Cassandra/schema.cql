@@ -24,7 +24,7 @@ CREATE TABLE ailpup.reviews (
   review_id int PRIMARY KEY,
   review_body text,
   frozen<rating>,
-  created_at date )
+  created_at text )
   WITH comment = 'Find review by ID';
 
 CREATE TABLE ailpup.reviews_by_listing (
@@ -32,9 +32,9 @@ CREATE TABLE ailpup.reviews_by_listing (
   review_id int,
   user_first_name text,
   review_body text,
-  created_at date,
+  created_at text,
   frozen<ratings>,
-  PRIMARY KEY ((listing_id), date) )
+  PRIMARY KEY ((listing_id), created_at) )
   WITH comment = 'Find reviews by listing sorted by date';
 
 CREATE TABLE ailpup.reviews_by_user (
@@ -44,7 +44,7 @@ CREATE TABLE ailpup.reviews_by_user (
   photo_url text,
   review_id text,
   review_body text,
-  created_at date,
+  created_at text,
   frozen<ratings>
   PRIMARY KEY ((username), created_at) )
   WITH comment = 'Find reviews by username'
