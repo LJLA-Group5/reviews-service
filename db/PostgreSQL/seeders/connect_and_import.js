@@ -20,6 +20,7 @@ async function seed(tableName, createTableQuery, importDataQuery) {
     await client.query(importDataQuery);
     debug(`Imported ${tableName} data`);
   } catch (err) {
+    console.log(err);
     debug(err);
   }
 
