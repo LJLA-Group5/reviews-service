@@ -25,9 +25,3 @@ const importData = `
 `;
 
 seed('reviews', reviewsTable, importData);
-
-async function seedReviews() {
-  await seed('reviews', reviewsTable, importData);
-}
-
-module.exports = seedReviews;

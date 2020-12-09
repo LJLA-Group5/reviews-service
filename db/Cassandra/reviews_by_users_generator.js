@@ -5,7 +5,7 @@ const faker = require('faker');
 const debug = require('debug')('app:gen:psql:users');
 const path = require('path');
 
-const generateRandomNum = (min, max) => Math.floor(Math.random() * max + min);
+const generateRandomNum = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
 // 10m users
 const usersStream = fs.createWriteStream(path.join(__dirname, '/data/cass_users_data.csv'));
@@ -27,12 +27,12 @@ function reviewsByUser(numberOfReviews) {
   const review_id = numberOfReviews;
   const review_body = faker.lorem.sentences();
   const created_at = `${faker.date.between('2015-01-01', '2020-12-05')}`;
-  const cleanliness = generateRandomNum(1, 5);
-  const communication = generateRandomNum(1, 5);
-  const check_in = generateRandomNum(1, 5);
-  const accuracy = generateRandomNum(1, 5);
-  const location = generateRandomNum(1, 5);
-  const value = generateRandomNum(1, 5);
+  const cleanliness = generateRandomNum(1, 6);
+  const communication = generateRandomNum(1, 6);
+  const check_in = generateRandomNum(1, 6);
+  const accuracy = generateRandomNum(1, 6);
+  const location = generateRandomNum(1, 6);
+  const value = generateRandomNum(1, 6);
   const review_entry = `${user_first_name},${username},${email},${photo_url},${review_id},${review_body},${created_at},${cleanliness},${communication},${check_in},${accuracy},${location},${value}\n`;
   const streamOkay = usersStream.write(review_entry);
   if (!streamOkay) usersStream.once('drain', () => reviewsByUser(numberOfReviews - 1));
