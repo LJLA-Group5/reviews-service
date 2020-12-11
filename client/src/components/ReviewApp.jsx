@@ -11,15 +11,13 @@ const ReviewApp = () => {
   const [reviewData, setReviewData] = useState([]);
   const [doneLoading, setDoneLoading] = useState(false);
   const { isShowing, toggle } = useModal();
-  const id = window.location.pathname.split('/')[1];
-
-  const dateSort = (d) => d.slice()
-    .sort((a, b) => new Date(b.review.date) - new Date(a.review.date));
+  const listingId = window.location.pathname.split('/')[1] || 1;
 
   if (!doneLoading) {
-    axios.get(`/api/review-listings/${id}/reviews`)
+    axios.get(`/api/listings/${listingId}/reviews`)
       .then((res) => {
-        setReviewData(dateSort(res.data[0].reviews));
+        console.log(res.data.rows);
+        setReviewData(res.data.rows);
       })
       .catch((err) => console.log(err));
     setDoneLoading(true);

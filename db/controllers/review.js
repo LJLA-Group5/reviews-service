@@ -7,7 +7,7 @@ module.exports = {
       req.params.listing_id,
       req.body.review_id,
       req.body.accuracy,
-      req.body.avatar_url,
+      req.body.photo_url,
       req.body.check_in,
       req.body.cleanliness,
       req.body.communication,
@@ -29,7 +29,7 @@ module.exports = {
   getReviewsByListing: async (req, res) => {
     const parameters = [req.params.listing_id];
     try {
-      const data = await Reviews.findAllByListing(parameters);
+      const data = await Reviews.getReviewsByListing(parameters);
       res.json(data);
     } catch (err) {
       res.status(404).send(err);
