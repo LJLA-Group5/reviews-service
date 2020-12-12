@@ -1,27 +1,30 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const morgan = require("morgan");
-const path = require("path");
-const listingController = require("../db/controllers/listing.js");
+require('newrelic');
+const express = require('express');
+const morgan = require('morgan');
+const path = require('path');
+const reviewController = require('../db/controllers/review.js');
 
-mongoose.set("useCreateIndex", true);
-const port = 8000;
-
+const port = 3003;
 const app = express();
 
-mongoose.connect("mongodb://localhost/FEC", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-app.use(morgan("dev"));
+app.use(morgan('dev'));
 app.use(express.json());
-app.use("/:id", express.static(path.join(__dirname, "/../client/dist")));
+app.use('/', express.static(path.join(__dirname, '/../client/dist')));
+app.use('/:id', express.static(path.join(__dirname, '/../client/dist')));
 
-// get all listings
-app.get("/api/review-listings/reviews", listingController.getListings);
+// create review
+app.post('/api/listings/:listing_id/reviews', reviewController.insertOneReview);
 
-// get a specific listing
-app.get("/api/review-listings/:id/reviews", listingController.getOneListing);
+// get reviews by listing
+app.get('/api/listings/:listing_id/reviews', reviewController.getReviewsByListing);
+
+// get one review
+app.get('/api/listings/:listing_id/reviews/:review_id', reviewController.getOneReview);
+
+// update review
+app.patch('/api/listings/:listing_id/reviews/:review_id', reviewController.updateOneReview);
+
+// delete review
+app.get('/api/listings/:listing_id/reviews', reviewController.deleteOneReview);
 
 app.listen(port, () => console.log(`listening on port ${port}`));

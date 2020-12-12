@@ -32,11 +32,7 @@ function reviewsByListing() {
   const accuracy = generateRandomNum(1, 6);
   const location = generateRandomNum(1, 6);
   const value = generateRandomNum(1, 6);
-  const review_entry = `${listing_id},${created_at},
-
-  '{accuracy:${accuracy},check_in:${check_in},cleanliness:${cleanliness},communication:${communication},location:${location},value:${value}}'
-
-  ,${review_body},${review_id},${user_first_name}\n`;
+  const review_entry = `${listing_id},${created_at},'{accuracy:${accuracy},check_in:${check_in},cleanliness:${cleanliness},communication:${communication},location:${location},value:${value}}',${review_body},${review_id},${user_first_name}\n`;
   const streamOkay = reviewsStream.write(review_entry);
   numberOfReviews -= 1;
   if (!streamOkay) reviewsStream.once('drain', () => reviewsByListing());

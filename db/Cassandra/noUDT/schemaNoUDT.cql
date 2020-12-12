@@ -20,12 +20,13 @@ CREATE KEYSPACE IF NOT EXISTS ailpupNoUDT WITH replication = {
 
 CREATE TABLE ailpupNoUDT.reviews_by_listing (
   listing_id int,
-  created_at text,
+  created_at date,
   accuracy tinyint,
   check_in tinyint,
   cleanliness tinyint,
   communication tinyint,
   location tinyint,
+  photo_url text,
   review_body text,
   review_id int,
   user_first_name text,
