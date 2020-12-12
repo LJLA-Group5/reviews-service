@@ -20,10 +20,10 @@ const ReviewList = ({ data }) => {
     <ReviewGrid>
       {reviews.slice(0, 6).map((singleReview) => (
         <ReviewListEntry
-          avatar={singleReview.user.photo_url}
-          name={singleReview.user.name}
-          text={singleReview.review.text}
-          date={singleReview.review.date}
+          avatar={singleReview.photo_url}
+          name={singleReview.user_first_name}
+          text={singleReview.review_body}
+          date={singleReview.created_at}
         />
       ))}
     </ReviewGrid>

@@ -1,5 +1,8 @@
 require('dotenv').config();
+// const debug = require('debug')('app:server:review');
 const cassandra = require('cassandra-driver');
+
+const distance = cassandra.types.distance;
 
 const authProvider = new cassandra.auth.PlainTextAuthProvider(
   // process.env.CASSANDRA_USER,
@@ -11,6 +14,12 @@ const authProvider = new cassandra.auth.PlainTextAuthProvider(
 const client = new cassandra.Client({
   contactPoints: ['127.0.0.1:9042'],
   localDataCenter: 'datacenter1',
+  pooling: {
+    coreConnectionsPerHost: {
+      [distance.local]: 2,
+      [distance.remote]: 1,
+    },
+  },
   authProvider,
   keyspace: 'ailpupnoudt',
 });

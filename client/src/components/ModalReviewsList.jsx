@@ -41,10 +41,10 @@ const ReviewList = ({ data }) => {
       <ReviewsListContainer>
         {conditionalData.map((singleReview) => (
           <ModalReviewListEntry
-            avatar={singleReview.user.avatar_url}
-            name={singleReview.user.name}
-            text={singleReview.review.text}
-            date={singleReview.review.date}
+            avatar={singleReview.photo_url}
+            name={singleReview.user_first_name}
+            text={singleReview.review_body}
+            date={singleReview.created_at}
             searchTerm={searchTerm}
           />
         ))}
