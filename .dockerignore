@@ -1,0 +1,6 @@
+db/Cassandra/data*
+db/PostgreSQL/data*
+.env
+node_modules
+.gitignore
+package-lock.json
