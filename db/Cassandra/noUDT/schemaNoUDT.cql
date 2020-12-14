@@ -32,7 +32,8 @@ CREATE TABLE ailpupNoUDT.reviews_by_listing (
   user_first_name text,
   value tinyint,
   PRIMARY KEY ((listing_id), created_at) )
-  WITH comment = 'Find reviews by listing sorted by date';
+  WITH CLUSTERING ORDER BY (created_at DESC)
+  AND COMMENT = 'Find reviews by listing sorted by date';
 
 -- CREATE TABLE ailpup.reviews_by_user (
 --   user_first_name text,
