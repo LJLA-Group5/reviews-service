@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66b6e198-d397-424f-8271-41e9dad8f53d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/Cassandra/noUDT/schemaNoUDT.cql" beforeDir="false" afterPath="$PROJECT_DIR$/db/Cassandra/noUDT/schemaNoUDT.cql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +76,7 @@
       <workItem from="1607652504822" duration="4298000" />
       <workItem from="1607659736122" duration="807000" />
       <workItem from="1607660583528" duration="6158000" />
-      <workItem from="1607711267298" duration="40849000" />
+      <workItem from="1607711267298" duration="56821000" />
     </task>
     <task id="LOCAL-00001" summary="dockerize client">
       <created>1607813895798</created>
