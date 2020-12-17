@@ -11,6 +11,10 @@ app.use(express.json());
 app.use('/', express.static(path.join(__dirname, '/../client/dist')));
 app.use('/:id', express.static(path.join(__dirname, '/../client/dist')));
 
+app.get('loaderio-306f3658129d169a634bf93644384323', (req, res) => {
+	res.sendFile(path.join(__dirname, '../client/dist/loaderio-306f3658129d169a634bf93644384323.txt'));
+});
+
 // create review
 app.post('/api/listings/:listing_id/reviews', reviewController.insertOneReview);
 
